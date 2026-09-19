@@ -15,3 +15,9 @@ variable "ami_id" {
     type        = string
     default     = "ami-12345678"
 }
+
+variable "ssh_cidr" {
+    description = "The CIDR block to allow SSH access from"
+    type        = string
+    default     = "0.0.0.0/0"
+}
