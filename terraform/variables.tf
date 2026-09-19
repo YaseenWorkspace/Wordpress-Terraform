@@ -4,3 +4,10 @@ variable "aws_region" {
     default     = "eu-west-2"
 }
 
+variable "instance_type" {
+    description = "The EC2 instance type to use for the deployment"
+    type        = string
+    default     = "t3.micro"
+}
+
+
