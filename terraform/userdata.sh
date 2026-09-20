@@ -16,8 +16,11 @@ systemctl start httpd
 systemctl enable httpd
 #Wordpress uses PHP as its programming language, so we need to install PHP and the PHP MySQL extension to allow WordPress to communicate with the database.
 yum install -y php
+#Command is used to install PHP component used to communicate with a MySQL database compatible with PHP.
 yum install -y php-mysql
+#wget command downloads files from the internet , so it is used to download latest wordpress version.
 wget https://wordpress.org/latest.tar.gz
+#Command extracts the zipped file and decompresses it.
 tar -xzf latest.tar.gz
 
 #Installs MariaDB
