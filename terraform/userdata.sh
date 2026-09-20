@@ -10,6 +10,7 @@ db_user_password="MyStrongPassword123!"
 yum update -y
 #yum is the package manager and can install packages , update and delete packages.
 yum install -y httpd
+#systemctl manages services on the system and start this service immediately and enable it to start on boot.
 systemctl start httpd
 systemctl enable httpd
 yum install -y php
