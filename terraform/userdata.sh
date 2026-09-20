@@ -38,6 +38,7 @@ sed -i “s/localhost/${DB_HOST}/” wp-config.php
 
 #Create the database user that the MariaDB account that WordPress will log in with
 CREATE USER 'db_username'@'localhost' IDENTIFIED BY 'db_user_password';
+#Gives access to the wordpress user to the database and table that WordPress will use to store its data.
 GRANT ALL PRIVILEGES ON database.table TO 'db_username'@'localhost';
 FLUSH PRIVILEGES;
 
