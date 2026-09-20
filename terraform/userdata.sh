@@ -30,16 +30,17 @@ systemctl start mariadb
 # Always Enabling MariaDB when the machine boots up"
 systemctl enable mariadb
 
+#This section of the WordPress's configuration file and replaces the placeholder database details with the actual database details
 sed -i "s/database_name_here/$db_name/g" wp-config.php
 sed -i "s/username_here/$db_username/g" wp-config.php
 sed -i "s/password_here/$db_user_password/g" wp-config.php
 sed -i “s/localhost/${DB_HOST}/” wp-config.php
 
-CREATE DATABASE $db_name;
-CREATE USER $wordpressuser@’%’ IDENTIFIED BY $MyStrongPassword123;
-GRANT ALL PRIVILEGES ON $wordpress.* TO $wpadmin@’%’;
-mysql -u $db_username -p"$db_user_password" -e "CREATE DATABASE $db_name;"
-EXIT;
+#Create the database user that the MariaDB account that WordPress will log in with
+CREATE USER 'db_username'@'localhost' IDENTIFIED BY 'db_user_password';
+GRANT ALL PRIVILEGES ON database.table TO 'db_username'@'localhost';
+FLUSH PRIVILEGES;
+
 
 
 chown -R httpd:httpd /usr/share/httpd/html
