@@ -3,6 +3,7 @@
 #variables used later in the script
 db_name="wordpress"
 db_username="wordpressuser"
+# In a real-world scenario, you should use a more secure method to handle passwords, such as using AWS Secrets Manager or environment variables. For this example, we will hardcode the password for simplicity.
 db_user_password="MyStrongPassword123!"
 
 yum update -y
