@@ -8,6 +8,7 @@ db_user_password="MyStrongPassword123!"
 
 # Update the system and install necessary packages
 yum update -y
+#yum is the package manager and can install packages , update and delete packages.
 yum install -y httpd
 systemctl start httpd
 systemctl enable httpd
@@ -22,6 +23,7 @@ yum install -y mariadb-server
 systemctl start mariadb
 # Always Enabling MariaDB when the machine boots up"
 systemctl enable mariadb
+
 sed -i "s/database_name_here/$db_name/g" wp-config.php
 sed -i "s/username_here/$db_username/g" wp-config.php
 sed -i "s/password_here/$db_user_password/g" wp-config.php
