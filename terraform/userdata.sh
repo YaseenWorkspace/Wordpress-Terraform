@@ -1,4 +1,6 @@
 #!/bin/bash
+
+#variables used later in the script
 db_name="wordpress"
 db_username="wordpressuser"
 db_user_password="MyStrongPassword123!"
