@@ -40,6 +40,7 @@ sed -i “s/localhost/${DB_HOST}/” wp-config.php
 CREATE USER 'db_username'@'localhost' IDENTIFIED BY 'db_user_password';
 #Gives access to the wordpress user to the database and table that WordPress will use to store its data.
 GRANT ALL PRIVILEGES ON database.table TO 'db_username'@'localhost';
+#Command applies the privelges that were granted to the user and makes them effective immediately.
 FLUSH PRIVILEGES;
 
 
