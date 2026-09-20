@@ -14,6 +14,7 @@ yum install -y httpd
 systemctl start httpd
 #Make Apache automatically start whenever the EC2 machine boots up
 systemctl enable httpd
+#Wordpress uses PHP as its programming language, so we need to install PHP and the PHP MySQL extension to allow WordPress to communicate with the database.
 yum install -y php
 yum install -y php-mysql
 wget https://wordpress.org/latest.tar.gz
