@@ -20,6 +20,7 @@ tar -xzf latest.tar.gz
 yum install -y mariadb-server
 #Start MariaDB
 systemctl start mariadb
+# Always Enabling MariaDB when the machine boots up"
 systemctl enable mariadb
 sed -i "s/database_name_here/$db_name/g" wp-config.php
 sed -i "s/username_here/$db_username/g" wp-config.php
