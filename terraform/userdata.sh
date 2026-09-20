@@ -6,6 +6,7 @@ db_username="wordpressuser"
 # In a real-world scenario, you should use a more secure method to handle passwords, such as using AWS Secrets Manager or environment variables. For this example, we will hardcode the password for simplicity.
 db_user_password="MyStrongPassword123!"
 
+# Update the system and install necessary packages
 yum update -y
 yum install -y httpd
 systemctl start httpd
@@ -15,7 +16,7 @@ yum install -y php-mysql
 wget https://wordpress.org/latest.tar.gz
 tar -xzf latest.tar.gz
 
-
+#Installs MariaDB
 yum install -y mariadb-server
 systemctl start mariadb
 systemctl enable mariadb
