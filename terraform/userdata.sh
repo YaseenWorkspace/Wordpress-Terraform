@@ -12,6 +12,7 @@ yum update -y
 yum install -y httpd
 #systemctl manages services on the system and start this service immediately and enable it to start on boot.
 systemctl start httpd
+#Make Apache automatically start whenever the EC2 machine boots up
 systemctl enable httpd
 yum install -y php
 yum install -y php-mysql
