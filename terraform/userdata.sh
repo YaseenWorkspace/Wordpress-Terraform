@@ -8,8 +8,8 @@ db_user_password="MyStrongPassword123!"
 db_host="localhost"
 # Update the system 
 dnf update -y
-#yum is the package manager and can install packages , update and delete packages.
-yum install -y httpd
+#dnf is the package manager on Amazon Linux 2023 (it replaces yum)
+dnf install -y httpd wget php-fpm php-mysqli php-json php php-devel
 #systemctl manages services on the system and start this service immediately and enable it to start on boot.
 systemctl start httpd
 #Make Apache automatically start whenever the EC2 machine boots up
