@@ -30,24 +30,22 @@ systemctl start mariadb
 # Always Enabling MariaDB when the machine boots up"
 systemctl enable mariadb
 
-#This section of the WordPress's configuration file and replaces the placeholder database details with the actual database details
-sed -i "s/database_name_here/$db_name/g" wp-config.php
-sed -i "s/username_here/$db_username/g" wp-config.php
-sed -i "s/password_here/$db_user_password/g" wp-config.php
-sed -i “s/localhost/${DB_HOST}/” wp-config.php
+
 
 #Commands to create the database and user for WordPress
-CREATE DATABASE $db_name;
-#Create the database user that the MariaDB account that WordPress will log in with
-CREATE USER 'db_username'@'localhost' IDENTIFIED BY 'db_user_password';
-#Gives access to the wordpress user to the database and table that WordPress will use to store its data.
-GRANT ALL PRIVILEGES ON database.table TO 'db_username'@'localhost';
-#Command applies the privelges that were granted to the user and makes them effective immediately.
-FLUSH PRIVILEGES;
+mysql -u root -e "CREATE DATABASE $db_name;"
+mysql -u root -e "CREATE USER '$db_username'@'localhost' IDENTIFIED BY '$db_user_password';"
+mysql -u root -e "GRANT ALL PRIVILEGES ON $db_name.* TO '$db_username'@'localhost';"
 
 
 
-chown -R httpd:httpd /usr/share/httpd/html
-chmod -R 755 /usr/share/httpd/html
+cp wordpress/wp-config-sample.php wordpress/wp-config.php
+sed -i "s/database_name_here/$db_name/g" wordpress/wp-config.php
+sed -i "s/username_here/$db_username/g" wordpress/wp-config.php
+sed -i "s/password_here/$db_user_password/g" wordpress/wp-config.php
+sed -i "s/localhost/${DB_HOST}/g" wordpress/wp-config.php
 
-cp -r wordpress/* /var/www/html/
+#chown -R httpd:httpd /usr/share/httpd/html
+#chmod -R 755 /usr/share/httpd/html
+
+#cp -r wordpress/* /var/www/html/
