@@ -11,7 +11,8 @@ dnf update -y
 #dnf is the package manager on Amazon Linux 2023 (it replaces yum)
 dnf install -y httpd wget php-fpm php-mysqli php-json php php-devel
 #systemctl manages services on the system and start this service immediately and enable it to start on boot.
-systemctl start httpd
+#MariaDB database server on the instance.
+dnf install -y mariadb105-server
 #Make Apache automatically start whenever the EC2 machine boots up
 systemctl enable httpd
 #Wordpress uses PHP as its programming language, so we need to install PHP and the PHP MySQL extension to allow WordPress to communicate with the database.
