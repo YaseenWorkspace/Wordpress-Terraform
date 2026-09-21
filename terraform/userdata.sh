@@ -24,12 +24,7 @@ wget https://wordpress.org/latest.tar.gz
 #Command extracts the zipped file and decompresses it.
 tar -xzf latest.tar.gz
 
-#Installs MariaDB
-yum install -y mariadb-server
-#Start MariaDB
-systemctl start mariadb
-# Always Enabling MariaDB when the machine boots up"
-systemctl enable mariadb
+
 
 
 
